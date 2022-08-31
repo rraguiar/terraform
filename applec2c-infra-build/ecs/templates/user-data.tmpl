@@ -1,0 +1,7 @@
+#cloud-config
+write_files:
+-   content: |
+        ECS_CLUSTER=${cluster_name}
+    path: /etc/ecs/ecs.config
+runcmd:
+  - [ systemctl, enable, --now, --no-block, ecs ]
